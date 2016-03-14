@@ -5,12 +5,15 @@ class Global
 end
 
 RSpec.describe Global do
+  let(:percentage) { rand * 100 }
+
   it "#counter is initialized to zero" do
     expect(described_class.counter).to eq 0
   end
 
   it "#increment_counter adds one to #counter" do
-    described_class.increment_counter
+    described_class.increment_counter if percentage <= 60
+
     expect(described_class.counter).to eq 1
   end
 end
